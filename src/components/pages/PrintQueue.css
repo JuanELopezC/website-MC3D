@@ -1,0 +1,85 @@
+.queue-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.queue-modal {
+  background: #f0f0f0;
+  padding: 25px;
+  width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  font-family: "Rubik", sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.queue-modal:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+.queue-modal h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+.queue-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.queue-item {
+  background: linear-gradient(145deg, #00c8ff, #009ac8);
+  color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.queue-item:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 8px 8px 20px rgba(0,0,0,0.5);
+}
+
+.queue-item p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+.queue-item strong {
+  font-size: 1.1rem;
+}
+
+.queue-item a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.close-queue {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: #444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.close-queue:hover {
+  background: #222;
+  transform: scale(1.03);
+}

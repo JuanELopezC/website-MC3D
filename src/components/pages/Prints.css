@@ -1,0 +1,117 @@
+.prints-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+}
+
+.prints-header {
+  margin-bottom: 40px;
+}
+
+.prints{
+    font-size: 3rem;
+  margin-bottom: 10px;
+}
+.prints-title {
+  font-size: 3rem;
+  margin-bottom: 5px;
+  padding: 5% ;
+  
+  
+}
+/* Optional fun underline animated gradient */
+.prints-title::after {
+  content: "";
+  display:block;
+  width: 500px;
+  height: 4px;
+  margin: 6px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ffcc00, #f0f0f0, #ffcc00);
+  background-size: 300% 100%;
+  animation: gradientShift 4s linear infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 300% 0%; }
+}
+.prints-subtitle {
+  color: #555;
+  font-size: 1.2rem;
+}
+
+/* Feature Cards */
+.prints-feature-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+/* Buttons */
+.prints-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 20px;
+}
+
+/* Slide animation for forms and queue */
+.form-container,
+.queue-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+.form-container.open,
+.queue-container.open {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* Queue Grid */
+.queue-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.queue-card {
+  background: linear-gradient(145deg, #00c8ff, #009ac8);
+  color: #fff;
+  padding: 15px;
+  width: 200px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  
+}
+
+.queue-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
+}
+
+.queue-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.queue-card p {
+  margin: 5px 0;
+}
+
+.queue-card a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: bold;
+}
