@@ -1,0 +1,77 @@
+.page-content {
+    text-align: center;
+    position: relative;    /* FIX */
+    overflow: hidden;      /* optional but recommended */
+}
+
+.grid-courses {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.prints-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.grid-prints {
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+.safety-manuals{
+     text-align: center;
+    margin-top: 10rem; 
+}
+
+.print-link {
+    display: block;
+    flex-shrink: 0;
+    width: 220px;
+    color: #000080;
+    text-decoration: none;
+}
+
+.print-link:visited {
+    color: #000080;
+    text-decoration: none;
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.page-content::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(
+        circle at center,
+        rgba(78, 64, 5, 0.08),
+        transparent 70%
+    );
+    animation: slowRotate 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes slowRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.page-content > .container > * {
+    position: relative;
+    z-index: 1;
+}

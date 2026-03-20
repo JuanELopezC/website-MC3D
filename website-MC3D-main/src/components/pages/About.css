@@ -1,0 +1,100 @@
+
+.about-section .container {
+  width: 90%;
+  max-width: None; /* allows wider content on large screens */
+  margin: 0 auto;
+  padding: 0 1rem; /* small horizontal padding */
+}
+
+/* Each section with vertical padding */
+.about-section {
+  padding: 3rem 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Section titles */
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+underline animated gradient */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 6px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ffcc00, #f0f0f0, #ffcc00);
+  background-size: 300% 100%;
+  animation: gradientShift 4s linear infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 300% 0%; }
+}
+
+/* Paragraphs */
+.about-section p {
+  text-align: center;
+  max-width: 100%;
+  margin: 1rem auto 0;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  color: #333;
+  padding: 0 1rem; /* small horizontal padding for narrow screens */
+}
+
+/* Image rows: side by side for multiple images */
+.image-row {
+  display: flex;
+  justify-content: center; /* center on large screens */
+  gap: 2rem;
+  flex-wrap: wrap; /* wraps on smaller screens */
+  margin: 2rem 0;
+}
+
+/* ImageCard size remains flexible */
+.image-row .img_card_3d {
+  flex: 1 1 300px; /* grow/shrink for responsive layout */
+  max-width: 330px;
+  transition: transform 0.3s ease;
+}
+
+/* Optional hover animation */
+.image-row .img_card_3d:hover {
+  transform: rotateY(5deg) rotateX(5deg) scale(1.05);
+  box-shadow: 0 20px 35px rgba(0,0,0,0.25);
+}
+
+/* Background radial animation */
+.about-section::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at center, rgba(78, 64, 5, 0.08), transparent 70%);
+  animation: slowRotate 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes slowRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Bring content above background animation */
+.about-section > .container > * {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,90 @@
+.print-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 300px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #eee;
+  text-align: left;
+}
+
+/* REMOVE width change completely */
+.print-card.expanded {
+  z-index: 10;
+}
+
+.main-print-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.print-basic-info {
+  padding: 15px;
+}
+
+.print-details {
+  padding: 0 15px;
+
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+
+  transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.print-card.expanded .print-details {
+  max-height: 800px;
+  opacity: 1;
+  padding: 0 15px 15px 15px;
+}
+
+.gallery-strip {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+  overflow-x: auto;
+}
+
+.thumb {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.thumb:hover,
+.active-thumb {
+  opacity: 1;
+  border: 2px solid #ffcc00;
+}
+
+.facts-section ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.facts-section li {
+  background: #f0f0f0;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+.close-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
