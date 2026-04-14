@@ -82,7 +82,7 @@ const About = () => {
 
       <section className="about-section">
       <div className="container">
-        <h2 className="section-title">Book an Appointment</h2>
+        <h2 className="section-title">Book An Appointment</h2>
 
         <div className="calendar-embed">
           <iframe
