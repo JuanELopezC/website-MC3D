@@ -14,33 +14,21 @@ import Prints from './components/pages/Prints.jsx';
 import Projects from './components/pages/Projects.jsx';
 import Collabs from './components/pages/Collabs.jsx';
 import Resources from './components/pages/Resources.jsx';
-/*fetch("http://localhost/reactapp/getdate.php",{
-  method: "POST",
-  body: formData
-  }
-)*/
-function App() {
-  /* Fun Fact Cards
-  const funFacts = [
-    { number: "", title: "3D Prints Completed" },
-    { number: "", title: "Active Members" },
-    { number: "", title: "Projects Built" },
-    { number: "", title: "Collabs With Other Clubs" },
-  ]*/
+import ScrollToTop from './components/pages/ScrollToTop.jsx';
 
-  // Image Cards
+function App() {
+
   const imageCards = [
     { picture: '3dprinter.gif', text: 'Our 3D printer in action' },
     { picture: 'homecoming.jpg', text: 'MC3D team photo' },
     { picture: 'roger.jpg', text: 'Prototype model' },
-    {picture: 'dinos.jpg' , text: 'Flexy dinos'},
+    { picture: 'dinos.jpg', text: 'Flexy dinos' },
   ];
 
   return (
     <div className="app">
 
       {/* --- Navbar --- */}
-      
       <nav className="navbar">
         <img className='logo' src='./images/logofixed.png'></img>
         {[
@@ -49,8 +37,6 @@ function App() {
           { to: "/events", label: "Events" },
           { to: "/members", label: "Members" },
           { to: "/prints", label: "Prints" },
-          /*{ to: "/projects", label: "Projects" },
-          /*{ to: "/collabs", label: "Collabs" },*/
           { to: "/resources", label: "Resources" }
         ].map(({ to, label }) => (
           <NavLink
@@ -66,11 +52,12 @@ function App() {
       {/* --- Main Content --- */}
       <main>
 
-        {/* Homepage */}
+        {/* ✅ ADD THIS LINE RIGHT HERE */}
+        <ScrollToTop />
+
         <Routes>
           <Route path="/" element={
             <>
-              {/* Slideshow */}
               <section className="slideshow-section">
                 <Slideshow
                   images={[
@@ -78,60 +65,64 @@ function App() {
                     '/images/rocks.jpg',
                     '/images/dinos.jpg',
                     '/images/trophy.jpg',
-                    '/images/blackjack.jpg',
+                    '/images/braxton.png',
                     '/images/bradley.jpg',
-                    '/images/chancemic.jpg',
+                    '/images/chance.jpg',
                     '/images/chance&braxton.jpg',
                     '/images/firstevent.jpg',
                     '/images/firstworkshop.jpg',
                     '/images/chancehelmet.jpg',
                     '/images/whitehelment.jpg',
-                    '/images/firstfloorpic.jpg',
-                    '/images/crapstable.jpg',
-                    '/images/frontable.jpeg',
-                    '/images/joshdealer.jpeg',
-                    '/images/slotsmachine.jpg'
-                    
                   ]}
                 />
               </section>
 
-              {/* Hero Text */}
-              <section className="photo-text">
-                <div className="box">
-                  <div className="inner"><span>Welcome to MC3D</span></div>
-                  <div className="inner"><span>Welcome to MC3D</span></div>
-                </div>
-                <h2>Official Maryville College 3D Printing Club</h2>
+              <section className="hero">
+                <h1>Maryville College 3D Printing Club</h1>
+                <p>Design. Create. Innovate.</p>
+                <Button label="Get Started" to="/about" />
               </section>
 
-                {/* Fun Fact Cards */}
-                <section className="funfacts-section">
-                  <h2>LEARN ABOUT US</h2>
-                  <div className="funfacts-container">
-                    <Button
-                      label="About Us"
-                      to="/about"
-                    
-                    />
-                  </div>
-                </section>
+              <section className="home-sections">
+                <div className="home-card">
+                  <h2>About Us</h2>
+                  <p>Learn about our club, mission, and what we do at MC3D.</p>
+                  <Button label="Learn More" to="/about" />
+                </div>
 
-              
+                <div className="home-card">
+                  <h2>Events</h2>
+                  <p>Workshops, meetings, and hands-on 3D printing sessions.</p>
+                  <Button label="View Events" to="/events" />
+                </div>
 
-              {/* Image Cards */}
-              <section className="imagecards-section">
-                <h2>3D Printing Highlights</h2>
-                <div className="imagecards-container">
-                  {imageCards.map((card, i) => (
-                    <ImageCard key={i} picture={card.picture} text={card.text} />
-                  ))}
+                <div className="home-card">
+                  <h2>Members</h2>
+                  <p>Meet the team behind the prints and projects.</p>
+                  <Button label="Meet Members" to="/members" />
+                </div>
+
+                <div className="home-card">
+                  <h2>Prints</h2>
+                  <p>Explore our 3D printed creations and designs.</p>
+                  <Button label="View Prints" to="/prints" />
+                </div>
+
+                <div className="home-card">
+                  <h2>How To Join</h2>
+                  <p>Learn how to join the club.</p>
+                  <Button label="Learn More" to="/members" />
+                </div>
+
+                <div className="home-card">
+                  <h2>Resources</h2>
+                  <p>Helpful tools, guides, and materials for 3D printing.</p>
+                  <Button label="Explore Resources" to="/resources" />
                 </div>
               </section>
             </>
           } />
 
-          {/* Other Pages */}
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Events />} />
           <Route path="/members" element={<Members />} />
@@ -140,7 +131,6 @@ function App() {
           <Route path="/collabs" element={<Collabs />} />
           <Route path="/resources" element={<Resources />} />
 
-          {/* 404 */}
           <Route path="*" element={
             <div className="page-content">
               <h2>404 - Page Not Found</h2>
@@ -158,7 +148,7 @@ function App() {
             <a href="mailto:mc3d@maryvillecollege.edu">mc3d@maryvillecollege.edu</a>
             <a href="https://www.instagram.com/mc3dprinting/" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-            
+            <NavLink to="/resources" className="nav-link">Resources</NavLink>
           </div>
           <p className="footer-note">© 2025 Maryville College 3D Printing Club — All Rights Reserved</p>
         </div>
@@ -166,8 +156,5 @@ function App() {
     </div>
   );
 }
-
-
-
 
 export default App;

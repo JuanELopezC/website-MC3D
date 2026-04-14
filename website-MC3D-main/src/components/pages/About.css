@@ -1,3 +1,7 @@
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
 .about-section .container {
   width: 90%;
@@ -31,7 +35,7 @@ underline animated gradient */
   height: 4px;
   margin: 6px auto 0;
   border-radius: 2px;
-  background: linear-gradient(90deg, #ffcc00, #f0f0f0, #ffcc00);
+  background: linear-gradient(90deg, #ffc72c, #f0f0f0, #ffc72c);
   background-size: 300% 100%;
   animation: gradientShift 4s linear infinite;
 }
@@ -97,4 +101,92 @@ underline animated gradient */
 .about-section > .container > * {
   position: relative;
   z-index: 1;
+}
+
+/* Advisor left-right layout */
+.advisor-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  flex-wrap: wrap; /* stacks on small screens */
+}
+
+.advisor-card .img_label {
+  text-align: center;
+  width: 100%;
+}
+
+/* Text column */
+.advisor-text {
+  max-width: 600px;
+  text-align: left;
+}
+
+.advisor-text p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+/* Make advisor image slightly larger */
+.advisor-layout .img_card_3d {
+  max-width: 360px;
+}
+
+/* Professional advisor image styling */
+.advisor-card .img_inner {
+  transform: none !important;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+/* Remove 3D tilt */
+.advisor-card .img_inner:hover {
+  transform: none;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Make image slightly taller for portrait look */
+.advisor-card .img_photo {
+  height: 260px;
+  object-fit: cover;
+}
+
+/* More professional label */
+.advisor-card .img_label {
+  background: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 14px 0;
+}
+
+.calendar-embed {
+  margin-top: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Center the map nicely */
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+/* Style the map image */
+.location-map {
+  width: 100%;
+  max-width: 700px;   /* keeps it a reasonable size */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  transition: transform 0.3s ease;
+}
+
+/* Subtle hover effect */
+.location-map:hover {
+  transform: scale(1.02);
 }

@@ -2,45 +2,42 @@ import React from "react";
 import "./Members.css";
 import MemberCard from "../MemberCard";
 
-const advisors = [
-  { name: "Dr. Smith", picture: "jesse-smith.png", role: "Advisor", bio: "Guides our club projects." },
-];
-
-const associates = [
-  { name: "Moe", picture: "Moe.jpg", role: "Associate", bio: "Machine learning and data scientist passion" },
-  { name: "Braxton", picture: "braxton.png", role: "Associate", bio: "Future engineer" },
-  { name: "Kelvin", picture: "Keelvin.jpg", role: "Associate", bio: "MR. Einstein" },
-];
-
 const officers = [
-  { name: "Chance", picture: "chance.jpg", role: "President", bio: "Next CS professor." },
-  { name: "Bradley", picture: "bradley (2).jpg", role: "Vice-President", bio: "Chill art guy." },
-  { name: "Juan", picture: "juan.jpg", role: "Social Media Manager", bio: "Best social media guy." },
-  { name: "Braxton", picture: "braxtonthink.jpg", role: "treasure 💰", bio: "Face of The Club." },
-  { name: "Jorge", picture: "jorge.jpg", role: "Software technician", bio: "Can fix everything." },
+  { name: "Juan", picture: "juanL_pfp.jpg", role: "President", major: "Computer Science"},
+  { name: "Bradley", picture: "bradley (2).jpg", role: "Co-Vice-President", major: "Art", bio: "Chill art guy." },
+  { name:"Charlotte Dickson", picture:"trophy.jpg", role:"Co-Vice-President", major: "Math B.S. & Computer Science"},
+  { name:"Josh Hester", picture:"joshH_pfp.png", role:"Secretary/Treasurer", major: "Business Analytics"},
+  { name:"Moises Garcia", picture:"moisesG_pfp.jpg", role:"Web Master", major: "Design"},
+  { name: "Kelvin", picture: "Keelvin.jpg", role: "Software Technician", major: "Computer Science", bio: "Loves gacha games" },
+  { name:"R0G3r", picture:"roger_pfp.jpg", role:"Commander", major: "Engineering, minor in Philosophy"}
 ];
 
 const members = [
-
-  { name: "Kylind", picture: "glorious_pope_kylind.png", role: "Member", bio: "self proclaimed pope." },
-  {name:"Paul", picture:"paul.jpg", role:"member", bio:"Find me always running."}
+  { name: "Kylind", picture: "popeKylind_pfp.png", role: "Pope & Member", major: "Math B.S. & Computer Science"},
+  { name: "Moe", picture: "Moe.jpg", role: "Associate & Member", major: "Math B.S. & Computer Science"},
+  { name:"Paul", picture:"paulK_pfp.jpg", role:"Member", major: "Computer Science", bio:"walking crash out guy."},
+  { name:"Ricardo Nunez", picture:"rickyN_pfp.jpg", role:"Member", major: "Architecture & Engineering"},
+  { name:"Jaklyn Rutter", picture:"jaklynR_pfp.png", role:"Member", major: "Biochemistry B.S."},
+  { name:"Morgan Gray", picture:"morganG_pfp.png", role:"Member", major: "Literature"},
+  { name:"Ravens Loft", picture:"trophy.jpg", role:"Member", major: "Neuroscience"}
 ];
 
 const Members = () => {
-  const renderSection = (title, list, description) => (
+
+  const renderSection = (title, list, description, extraClass = "") => (
     <section className="members-section">
       <div className="container">
         <h2 className="section-title">{title}</h2>
         {description && <p className="section-description">{description}</p>}
 
-        <div className="members-grid">
+        <div className={`members-grid ${extraClass}`}>
           {list.map((person, i) => (
             <MemberCard
               key={i}
               name={person.name}
               picture={person.picture}
               role={person.role}
-              bio={person.bio}
+              major={person.major}
             />
           ))}
         </div>
@@ -51,20 +48,43 @@ const Members = () => {
   return (
     <div className="members-page">
 
+      {/* HEADER + HOW TO JOIN */}
       <section className="members-section">
         <div className="container">
+          
+          {/* Header */}
           <h1 className="members-title">Our Club Members</h1>
           <p className="members-intro">
-            Our 3D Printing Club is home to a variety of members, from enthusiastic
-            students to experienced advisors. Click on any member to learn more about them!
+            Our club is more than just extruders and filament; it is a community of creators. 
+            Whether they're leveling beds or leading workshops, get to know our members by clicking their profiles below.
           </p>
+          <br></br>
+          {/* How To Join */}
+          <h2 className="section-title">How To Join</h2>
+          <p className="section-description">
+            Interested in joining our club? We welcome students of all majors and experience levels!
+          </p>
+          <p className="section-description">
+            Membership in this organization is inclusive and does not discriminate on the basis of religious preference, gender, sexual orientation, race, color, ethnic or national origin, age, disability, or political beliefs.
+          </p>
+
         </div>
       </section>
 
-      {renderSection("Advisors", advisors, "Our guiding mentors helping us achieve the best results.")}
-      {renderSection("Associates", associates, "Key contributors to club projects and events.")}
-      {renderSection("Officers", officers, "Leading the club and organizing activities.")}
-      {renderSection("Members", members, "Passionate students exploring 3D printing and design.")}
+      {/* OFFICERS */}
+      {renderSection(
+        "Officers",
+        officers,
+        "Leading the club and organizing activities.",
+        "officers-row"
+      )}
+
+      {/* MEMBERS */}
+      {renderSection(
+        "Members",
+        members,
+        "Passionate students exploring 3D printing and design."
+      )}
     </div>
   );
 };
